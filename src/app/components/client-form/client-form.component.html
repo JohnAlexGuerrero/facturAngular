@@ -1,0 +1,79 @@
+<div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">Nombres</label>
+            <input id="names" formControlName="names" class="form-control" />
+            <!-- <div *ngIf="form.get('names').invalid && form.get('names').touched" class="text-danger">
+                Name is required.
+            </div> -->
+        </div>
+    
+        <div class="form-group">
+            <label for="name">Tipo de documento</label>
+            <select formControlName="identification_document_id" id="identification_document_id">
+                @for (opt of identificationDocuments; track $index) {
+                    <option [value]="opt.id" > 
+                        <!-- [selected]="opt.id === form.get('identification_document_id').value" -->
+                        {{ opt.name }}
+                    </option>
+                }
+            </select>
+        </div>
+    
+        <div class="form-group">
+            <label for="name">Número de identificación</label>
+            <input type="text" id="identification" formControlName="identification" >
+        </div>
+    
+        <div class="form-group">
+            <label for="name">Dígito de verificación</label>
+            <input type="text" id="dv" formControlName="dv" >
+        </div>
+    
+        <div class="form-group">
+            <label for="name">Razón social</label>
+            <input type="text" id="company" formControlName="company" >
+        </div>
+    
+        <div class="form-group">
+            <label for="name">Nombre comercial</label>
+            <input type="text" id="trade_name" formControlName="trade_name" >
+        </div>
+    
+        <div class="form-group">
+            <label for="name">Dirección</label>
+            <input type="text" id="address" formControlName="address" >
+        </div>
+    
+        <div class="form-group">
+            <label for="name">Teléfono de contacto</label>
+            <input type="text" id="phone" formControlName="phone" >
+        </div>
+    
+        <div class="form-group">
+            <label for="name">Tipo de persona</label>
+            <select formControlName="legal_organization_id" id="legal_organization_id">
+                <option value="1">Persona Jurídica</option>
+                <option value="2">Persona Natural</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="name">Impuesto</label>
+            <select formControlName="tribute_id" id="tribute_id">
+                <option value="18">IVA</option>
+                <option value="21">No aplica *</option>
+            </select>
+        </div>
+    
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" type="email" formControlName="email" class="form-control" />
+            <!-- <div *ngIf="form.get('email').invalid && form.get('email').touched" class="text-danger">
+                Valid email is required.
+            </div> -->
+        </div>
+    
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+    </form>
+</div>
