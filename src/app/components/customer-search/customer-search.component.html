@@ -22,6 +22,9 @@
                     <tr *ngFor="let customer of dataset">
                         <td>{{ customer.names }}</td>
                         <td>{{ customer.identification }}</td>
+                        <td>
+                            <button (click)="selectedCustomer(customer)">seleccionar</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -33,5 +36,7 @@
         </li>
     </ul>
 </div>
+
+<app-client-detail [recivedCustomer]="recivedCustomer"></app-client-detail>
 
 <app-client-form></app-client-form>

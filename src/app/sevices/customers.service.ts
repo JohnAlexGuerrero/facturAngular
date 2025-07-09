@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Customer } from '../models/customer';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomersService {
+  private customerSubject = new Subject<Customer | undefined>();
+  // customer$ = this.customerSubject.asObservable();
+  customer: Customer | undefined;
+
   dataset: Customer[] = [];
 
   constructor() { }
@@ -20,7 +25,6 @@ export class CustomersService {
     return this.dataset.find(customer => customer.id === id);
   }
 
-  
 
   // Método para buscar un cliente por su nombre
   filterCustomerByNameOrIdentification(value: string): Customer[] | undefined {
@@ -34,4 +38,11 @@ export class CustomersService {
   filterCustomerByIdentification(identification: string): Customer[] | undefined {
     return this.dataset.filter(customer => customer.identification.includes(identification));
   }
+
+  // Método que envia la información del cliente por medio de un subject
+  sendData(customer: Customer): void{
+    this.customerSubject.next(customer);
+  }
+
+  
 }
