@@ -1,0 +1,37 @@
+<div>
+    <label for="search">Buscar Cliente:</label>
+    <input
+        (change)="searchCustomer()" 
+        id="searchClient" 
+        type="text" 
+        [formControl]="searchClient"
+        placeholder="Busca por nombre o numero de identificación"
+    >
+</div>
+
+<div>
+    <h2>Resultados de la busqueda</h2>
+    <ul [ngStyle]="{'display': hideDisplay}">
+        <li>
+            <table>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Identificación</th>
+                </tr>
+                <tbody>
+                    <tr *ngFor="let customer of dataset">
+                        <td>{{ customer.names }}</td>
+                        <td>{{ customer.identification }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </li>
+        <li>
+            <p *ngIf="dataset.length === 0">No se encontraron resultados.</p>
+
+            <button>Agregar Cliente</button>
+        </li>
+    </ul>
+</div>
+
+<app-client-form></app-client-form>

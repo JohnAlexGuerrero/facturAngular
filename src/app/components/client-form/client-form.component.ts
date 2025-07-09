@@ -55,5 +55,6 @@ export class ClientFormComponent implements OnInit {
   // Método para enviar el formulario
   onSubmit(){
     this.customersService.addCustomer(this.form.value);
+    this.form.reset();
   }
 }
