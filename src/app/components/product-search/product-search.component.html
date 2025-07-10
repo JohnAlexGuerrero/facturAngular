@@ -1,0 +1,47 @@
+<div>
+    <label for="productName"></label>
+    <input 
+        id="productSearch" 
+        type="text" 
+        [formControl]="productSearch" 
+        (change)="onSearch()"
+        placeholder="Busqueda por nombre o código de producto"
+    >
+
+    <h2>Resultados de busqueda</h2>
+
+    <ul [ngStyle]="{'display': 'hideDisplay'}">
+        <li>
+            <table>
+                <thead>
+
+                    <th>
+                        <label for="productName">Código:</label>
+                    </th>
+                    <th>
+                        <label for="productName">Nombre del Producto:</label>
+                    </th>
+                    <th>
+                        <label for="productName">Unidad:</label>
+                    </th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of dataset">
+                        <td>{{ product.code_reference }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.unit_measure_id }}</td>
+                        <td>
+                            <button 
+                                type="button" 
+                                (click)="onProductSelected(product)"
+                            >
+                                Seleccionar
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </li>
+    </ul>
+</div>

@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ProductService } from '../../services/product.service';
+import { ProductSearchComponent } from '../product-search/product-search.component';
 
 @Component({
   selector: 'app-product-form',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ProductSearchComponent
   ],
   templateUrl: './product-form.component.html',
   styleUrl: './product-form.component.css'
@@ -26,8 +28,8 @@ export class ProductFormComponent implements OnInit{
   // Método para inicializar el formulario del producto
   initForm(): void{
     this.formProduct = this.fb.group({
-      code_reference: [''],
-      name: [''],
+      code_reference: ['', Validators.required],
+      name: ['', Validators.required],
       unit_measure_id: [],
       note: [''],
       // tax_rate: [0],

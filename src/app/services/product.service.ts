@@ -18,4 +18,12 @@ export class ProductService {
   getProductById(id:string): Product | undefined{
     return this.dataset.find(product => product.id === id);
   }
+
+  // Método para filtrar productos por nombre o codigo
+  filterProductByNameOrCode(searchTerm: string): Product[]{
+    return this.dataset.filter(product => 
+      product.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+      product.code_reference.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
 }

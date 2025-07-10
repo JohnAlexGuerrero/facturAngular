@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomersService } from '../../sevices/customers.service';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Customer } from '../../models/customer';
 import { CommonModule } from '@angular/common';
 import { ClientFormComponent } from '../client-form/client-form.component';
 import { ClientDetailComponent } from '../client-detail/client-detail.component';
+import { CustomersService } from '../../services/customers.service';
 
 @Component({
   selector: 'app-customer-search',
   standalone: true,
   imports: [
     ReactiveFormsModule, CommonModule,
-    ClientFormComponent, ClientDetailComponent
+    // ClientFormComponent, ClientDetailComponent
   ],
   templateUrl: './customer-search.component.html',
   styleUrl: './customer-search.component.css'
