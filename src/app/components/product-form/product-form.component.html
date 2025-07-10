@@ -1,0 +1,93 @@
+<form [formGroup]="formProduct" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="productName">Nombre del Producto:</label>
+        <input 
+            id="productName" 
+            type="text" 
+            formControlName="name" 
+            placeholder="Ingrese el nombre del producto"
+        >
+    </div>
+
+    <div>
+        <label for="productCode">Código del Producto:</label>
+        <input 
+            id="productCode" 
+            type="text" 
+            formControlName="code_reference" 
+            placeholder="Ingrese el código del producto"
+        >
+    </div>
+
+    <!-- <div>
+        <label for="productQty">Cantidad del Producto:</label>
+        <input 
+            id="productQty" 
+            type="text" 
+            formControlName="quantity" 
+            placeholder="Ingrese cantidad"
+        >
+    </div> -->
+
+    <!-- <div>
+        <label for="productDiscountRate">Descuento:</label>
+        <input 
+            id="productDiscountRate" 
+            type="text" 
+            formControlName="discount_rate" 
+            placeholder="Ingrese descuento"
+        >
+    </div> -->
+
+    <!-- <div>
+        <label for="productPrice">Precio del Producto:</label>
+        <input 
+            id="productPrice" 
+            type="text" 
+            formControlName="price" 
+            placeholder="Ingrese precio"
+        >
+    </div> -->
+
+    <!-- <div>
+        <label for="productTaxRate">Impuesto:</label>
+        <input 
+            id="productTaxRate" 
+            type="text" 
+            formControlName="tax_rate" 
+            placeholder="Ingrese impuesto"
+        >
+    </div> -->
+
+    <div>
+        <label for="productUnit">Unidad:</label>
+        <input 
+            id="productUnit" 
+            type="text" 
+            formControlName="unit_measure_id" 
+            placeholder="Ingrese unidad de medida"
+        >
+    </div>
+
+    <div>
+        <label for="productNote">Descripción:</label>
+        <input 
+            id="productNote" 
+            type="text" 
+            formControlName="note" 
+            placeholder="Ingrese una descripción del producto"
+        >
+    </div>
+<!-- 
+    <div>
+        <label for="productIsExcluded">Producto excluido de impuestos:</label>
+        <input 
+            id="productIsExcluded" 
+            type="text" 
+            formControlName="is_excluded" 
+            placeholder="Ingrese si el producto es excluido de impuestos"
+        >
+    </div> -->
+
+    <button>Guardar</button>
+</form>
